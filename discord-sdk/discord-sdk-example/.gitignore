@@ -1,0 +1,17 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/discord-sdk-example
+discord-sdk-example.so
+discord-sdk-example.dylib
+discord-sdk-example.dll
+discord-sdk-example.a
+discord-sdk-example.lib
+discord-sdk-example-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
+lib/
