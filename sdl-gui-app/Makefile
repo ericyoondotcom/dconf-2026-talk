@@ -69,9 +69,7 @@ win-exe: dlang-release-win
 	mkdir build\SDL GUI App-win64
 	mkdir build\SDL GUI App-win64\lib
 	copy sdl-gui-app.exe build\SDL GUI App-win64\SDL GUI App.exe
-	xcopy "..\example-projects" "build\SDL GUI App-win64\Example Projects" /E /I
 	copy "$(WIN_SDL3_DLL_PATH)" build\SDL GUI App-win64\lib\SDL3.dll
-	xcopy assets build\SDL GUI App-win64\assets /E /I
 	cmd /c start "" build\SDL GUI App-win64
 
 clean:
