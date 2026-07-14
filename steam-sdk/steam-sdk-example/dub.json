@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"Yoonicode"
+	],
+	"copyright": "Public Domain",
+	"description": "A minimal example of using the Steamworks SDK in DLang",
+	"license": "Unlicense",
+	"name": "steam-sdk-example",
+	"lflags": [
+		"-rpath", "@executable_path/lib"
+	]
+}

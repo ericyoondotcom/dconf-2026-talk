@@ -1,0 +1,17 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/steam-sdk-example
+steam-sdk-example.so
+steam-sdk-example.dylib
+steam-sdk-example.dll
+steam-sdk-example.a
+steam-sdk-example.lib
+steam-sdk-example-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
+lib/
