@@ -1,0 +1,41 @@
+{
+	"authors": [
+		"Yoonicode"
+	],
+	"copyright": "Public Domain",
+	"description": "Minimal example of a DLang SDL3 app that builds for MacOS and Windows",
+	"license": "Unlicense",
+	"name": "sdl-gui-app",
+	"dependencies": {
+		"bindbc-sdl": "~>2.4.0"
+	},
+	"versions": [
+		"SDL_3_4_4"
+	],
+	"buildTypes": {
+		"development-mac": {
+			"versions": ["Development", "Platform_MacOS"],
+			"lflags": [
+				"-rpath", "@executable_path/lib"
+			]
+		},
+		"development-win": {
+			"versions": ["Development", "Platform_Windows"]
+		},
+		"release-mac": {
+			"versions": ["Release", "Platform_MacOS"],
+			"buildOptions": ["optimize", "inline", "releaseMode", "debugInfo"],
+			"lflags": [
+				"-rpath", "@executable_path/../Frameworks"
+			]
+		},
+		"release-win": {
+			"buildOptions": ["optimize", "inline", "releaseMode", "debugInfo"],
+			"versions": ["Release", "Platform_Windows"],
+			"lflags":[
+				"-subsystem:windows",
+				"-entry:wmainCRTStartup"
+			]
+		}
+	}
+}

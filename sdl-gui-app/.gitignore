@@ -1,0 +1,17 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/sdl-gui-app
+sdl-gui-app.so
+sdl-gui-app.dylib
+sdl-gui-app.dll
+sdl-gui-app.a
+sdl-gui-app.lib
+sdl-gui-app-test-*
+sdl-gui-app-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
