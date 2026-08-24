@@ -69,7 +69,7 @@ win-exe: dlang-release-win
 	mkdir build\sdl-gui-example-win64
 	mkdir build\sdl-gui-example-win64\lib
 	copy sdl-gui-app.exe build\sdl-gui-example-win64\sdl-gui-example.exe
-	copy "$(WIN_SDL3_DLL_PATH)" build\sdl-gui-example-win64\lib\SDL3.dll
+	copy "$(WIN_SDL3_DLL_PATH)" build\sdl-gui-example-win64\lib
 	cmd /c start "" build\sdl-gui-example-win64
 
 clean:
