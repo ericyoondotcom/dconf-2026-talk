@@ -814,8 +814,8 @@ uint SteamAPI_ISteamFriends_GetProfileItemPropertyUint(SWIGTYPE_p_ISteamFriends 
   return ret;
 }
 
-SWIGTYPE_p_ISteamUtils SteamAPI_SteamUtils_v010() {
-  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamUtils_v010();
+SWIGTYPE_p_ISteamUtils SteamAPI_SteamUtils_v011() {
+  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamUtils_v011();
   SWIGTYPE_p_ISteamUtils ret = (cPtr is null) ? null : new SWIGTYPE_p_ISteamUtils(cPtr, false);
   return ret;
 }
@@ -826,8 +826,8 @@ SWIGTYPE_p_ISteamUtils SteamAPI_SteamUtils() {
   return ret;
 }
 
-SWIGTYPE_p_ISteamUtils SteamAPI_SteamGameServerUtils_v010() {
-  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamGameServerUtils_v010();
+SWIGTYPE_p_ISteamUtils SteamAPI_SteamGameServerUtils_v011() {
+  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamGameServerUtils_v011();
   SWIGTYPE_p_ISteamUtils ret = (cPtr is null) ? null : new SWIGTYPE_p_ISteamUtils(cPtr, false);
   return ret;
 }
@@ -1001,11 +1001,6 @@ SWIGTYPE_p_ESteamIPv6ConnectivityState SteamAPI_ISteamUtils_GetIPv6ConnectivityS
   return ret;
 }
 
-bool SteamAPI_ISteamUtils_IsSteamRunningOnSteamDeck(SWIGTYPE_p_ISteamUtils self) {
-  bool ret = steamworks.steamworks_im.SteamAPI_ISteamUtils_IsSteamRunningOnSteamDeck(SWIGTYPE_p_ISteamUtils.swigGetCPtr(self)) ? true : false;
-  return ret;
-}
-
 bool SteamAPI_ISteamUtils_ShowFloatingGamepadTextInput(SWIGTYPE_p_ISteamUtils self, SWIGTYPE_p_EFloatingGamepadTextInputMode eKeyboardMode, int nTextFieldXPosition, int nTextFieldYPosition, int nTextFieldWidth, int nTextFieldHeight) {
   bool ret = steamworks.steamworks_im.SteamAPI_ISteamUtils_ShowFloatingGamepadTextInput(SWIGTYPE_p_ISteamUtils.swigGetCPtr(self), SWIGTYPE_p_EFloatingGamepadTextInputMode.swigGetCPtr(eKeyboardMode), nTextFieldXPosition, nTextFieldYPosition, nTextFieldWidth, nTextFieldHeight) ? true : false;
   if (steamworks.steamworks_im.SwigPendingException.isPending) throw steamworks.steamworks_im.SwigPendingException.retrieve();
@@ -1023,6 +1018,21 @@ bool SteamAPI_ISteamUtils_DismissFloatingGamepadTextInput(SWIGTYPE_p_ISteamUtils
 
 bool SteamAPI_ISteamUtils_DismissGamepadTextInput(SWIGTYPE_p_ISteamUtils self) {
   bool ret = steamworks.steamworks_im.SteamAPI_ISteamUtils_DismissGamepadTextInput(SWIGTYPE_p_ISteamUtils.swigGetCPtr(self)) ? true : false;
+  return ret;
+}
+
+SWIGTYPE_p_ESteamHardwareType SteamAPI_ISteamUtils_IsRunningOnSteamHardware(SWIGTYPE_p_ISteamUtils self) {
+  SWIGTYPE_p_ESteamHardwareType ret = new SWIGTYPE_p_ESteamHardwareType(steamworks.steamworks_im.SteamAPI_ISteamUtils_IsRunningOnSteamHardware(SWIGTYPE_p_ISteamUtils.swigGetCPtr(self)), true);
+  return ret;
+}
+
+SWIGTYPE_p_ESteamHardwareDefaultConfig SteamAPI_ISteamUtils_GetSteamHardwareDefaultConfig(SWIGTYPE_p_ISteamUtils self) {
+  SWIGTYPE_p_ESteamHardwareDefaultConfig ret = new SWIGTYPE_p_ESteamHardwareDefaultConfig(steamworks.steamworks_im.SteamAPI_ISteamUtils_GetSteamHardwareDefaultConfig(SWIGTYPE_p_ISteamUtils.swigGetCPtr(self)), true);
+  return ret;
+}
+
+bool SteamAPI_ISteamUtils_IsRunningUnderProton(SWIGTYPE_p_ISteamUtils self) {
+  bool ret = steamworks.steamworks_im.SteamAPI_ISteamUtils_IsRunningUnderProton(SWIGTYPE_p_ISteamUtils.swigGetCPtr(self)) ? true : false;
   return ret;
 }
 
@@ -1273,8 +1283,20 @@ void SteamAPI_ISteamMatchmakingRulesResponse_RulesRefreshComplete(SWIGTYPE_p_ISt
   steamworks.steamworks_im.SteamAPI_ISteamMatchmakingRulesResponse_RulesRefreshComplete(SWIGTYPE_p_ISteamMatchmakingRulesResponse.swigGetCPtr(self));
 }
 
-SWIGTYPE_p_ISteamMatchmakingServers SteamAPI_SteamMatchmakingServers_v002() {
-  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamMatchmakingServers_v002();
+void SteamAPI_ISteamMatchmakingServerFriendsResponse_AddFriendToList(SWIGTYPE_p_ISteamMatchmakingServerFriendsResponse self, ulong steamID, string pchName, bool bCurrentlyConnected) {
+  steamworks.steamworks_im.SteamAPI_ISteamMatchmakingServerFriendsResponse_AddFriendToList(SWIGTYPE_p_ISteamMatchmakingServerFriendsResponse.swigGetCPtr(self), steamID, (pchName ? std.string.toStringz(pchName) : null), bCurrentlyConnected);
+}
+
+void SteamAPI_ISteamMatchmakingServerFriendsResponse_FriendsFailedToRespond(SWIGTYPE_p_ISteamMatchmakingServerFriendsResponse self) {
+  steamworks.steamworks_im.SteamAPI_ISteamMatchmakingServerFriendsResponse_FriendsFailedToRespond(SWIGTYPE_p_ISteamMatchmakingServerFriendsResponse.swigGetCPtr(self));
+}
+
+void SteamAPI_ISteamMatchmakingServerFriendsResponse_FriendsRefreshComplete(SWIGTYPE_p_ISteamMatchmakingServerFriendsResponse self) {
+  steamworks.steamworks_im.SteamAPI_ISteamMatchmakingServerFriendsResponse_FriendsRefreshComplete(SWIGTYPE_p_ISteamMatchmakingServerFriendsResponse.swigGetCPtr(self));
+}
+
+SWIGTYPE_p_ISteamMatchmakingServers SteamAPI_SteamMatchmakingServers_v003() {
+  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamMatchmakingServers_v003();
   SWIGTYPE_p_ISteamMatchmakingServers ret = (cPtr is null) ? null : new SWIGTYPE_p_ISteamMatchmakingServers(cPtr, false);
   return ret;
 }
@@ -1372,6 +1394,11 @@ SWIGTYPE_p_HServerQuery SteamAPI_ISteamMatchmakingServers_PlayerDetails(SWIGTYPE
 
 SWIGTYPE_p_HServerQuery SteamAPI_ISteamMatchmakingServers_ServerRules(SWIGTYPE_p_ISteamMatchmakingServers self, uint unIP, ushort usPort, SWIGTYPE_p_ISteamMatchmakingRulesResponse pRequestServersResponse) {
   SWIGTYPE_p_HServerQuery ret = new SWIGTYPE_p_HServerQuery(steamworks.steamworks_im.SteamAPI_ISteamMatchmakingServers_ServerRules(SWIGTYPE_p_ISteamMatchmakingServers.swigGetCPtr(self), unIP, usPort, SWIGTYPE_p_ISteamMatchmakingRulesResponse.swigGetCPtr(pRequestServersResponse)), true);
+  return ret;
+}
+
+SWIGTYPE_p_HServerQuery SteamAPI_ISteamMatchmakingServers_ServerFriends(SWIGTYPE_p_ISteamMatchmakingServers self, uint unIP, ushort usPort, SWIGTYPE_p_ISteamMatchmakingServerFriendsResponse pRequestServersResponse) {
+  SWIGTYPE_p_HServerQuery ret = new SWIGTYPE_p_HServerQuery(steamworks.steamworks_im.SteamAPI_ISteamMatchmakingServers_ServerFriends(SWIGTYPE_p_ISteamMatchmakingServers.swigGetCPtr(self), unIP, usPort, SWIGTYPE_p_ISteamMatchmakingServerFriendsResponse.swigGetCPtr(pRequestServersResponse)), true);
   return ret;
 }
 
@@ -2220,6 +2247,15 @@ bool SteamAPI_ISteamApps_SetActiveBeta(SWIGTYPE_p_ISteamApps self, string pchBet
   return ret;
 }
 
+void SteamAPI_ISteamApps_SetGamePerformanceSetting(SWIGTYPE_p_ISteamApps self, SWIGTYPE_p_EGamePerformanceSetting setting) {
+  steamworks.steamworks_im.SteamAPI_ISteamApps_SetGamePerformanceSetting(SWIGTYPE_p_ISteamApps.swigGetCPtr(self), SWIGTYPE_p_EGamePerformanceSetting.swigGetCPtr(setting));
+  if (steamworks.steamworks_im.SwigPendingException.isPending) throw steamworks.steamworks_im.SwigPendingException.retrieve();
+}
+
+void SteamAPI_ISteamApps_SetGameRenderResolution(SWIGTYPE_p_ISteamApps self, uint unWidth, uint unHeight) {
+  steamworks.steamworks_im.SteamAPI_ISteamApps_SetGameRenderResolution(SWIGTYPE_p_ISteamApps.swigGetCPtr(self), unWidth, unHeight);
+}
+
 SWIGTYPE_p_ISteamNetworking SteamAPI_SteamNetworking_v006() {
   void* cPtr = steamworks.steamworks_im.SteamAPI_SteamNetworking_v006();
   SWIGTYPE_p_ISteamNetworking ret = (cPtr is null) ? null : new SWIGTYPE_p_ISteamNetworking(cPtr, false);
@@ -2652,8 +2688,8 @@ bool SteamAPI_ISteamHTTP_GetHTTPRequestWasTimedOut(SWIGTYPE_p_ISteamHTTP self, S
   return ret;
 }
 
-SWIGTYPE_p_ISteamInput SteamAPI_SteamInput_v006() {
-  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamInput_v006();
+SWIGTYPE_p_ISteamInput SteamAPI_SteamInput_v007() {
+  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamInput_v007();
   SWIGTYPE_p_ISteamInput ret = (cPtr is null) ? null : new SWIGTYPE_p_ISteamInput(cPtr, false);
   return ret;
 }
@@ -4509,8 +4545,8 @@ SWIGTYPE_p_ESteamNetworkingConnectionState SteamAPI_ISteamNetworkingMessages_Get
   return ret;
 }
 
-SWIGTYPE_p_ISteamNetworkingSockets SteamAPI_SteamNetworkingSockets_SteamAPI_v012() {
-  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamNetworkingSockets_SteamAPI_v012();
+SWIGTYPE_p_ISteamNetworkingSockets SteamAPI_SteamNetworkingSockets_SteamAPI_v013() {
+  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamNetworkingSockets_SteamAPI_v013();
   SWIGTYPE_p_ISteamNetworkingSockets ret = (cPtr is null) ? null : new SWIGTYPE_p_ISteamNetworkingSockets(cPtr, false);
   return ret;
 }
@@ -4521,8 +4557,8 @@ SWIGTYPE_p_ISteamNetworkingSockets SteamAPI_SteamNetworkingSockets_SteamAPI() {
   return ret;
 }
 
-SWIGTYPE_p_ISteamNetworkingSockets SteamAPI_SteamGameServerNetworkingSockets_SteamAPI_v012() {
-  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamGameServerNetworkingSockets_SteamAPI_v012();
+SWIGTYPE_p_ISteamNetworkingSockets SteamAPI_SteamGameServerNetworkingSockets_SteamAPI_v013() {
+  void* cPtr = steamworks.steamworks_im.SteamAPI_SteamGameServerNetworkingSockets_SteamAPI_v013();
   SWIGTYPE_p_ISteamNetworkingSockets ret = (cPtr is null) ? null : new SWIGTYPE_p_ISteamNetworkingSockets(cPtr, false);
   return ret;
 }
@@ -4603,8 +4639,8 @@ SWIGTYPE_p_EResult SteamAPI_ISteamNetworkingSockets_SendMessageToConnection(SWIG
   return ret;
 }
 
-void SteamAPI_ISteamNetworkingSockets_SendMessages(SWIGTYPE_p_ISteamNetworkingSockets self, int nMessages, SWIGTYPE_p_p_SteamNetworkingMessage_t pMessages, long* pOutMessageNumberOrResult) {
-  steamworks.steamworks_im.SteamAPI_ISteamNetworkingSockets_SendMessages(SWIGTYPE_p_ISteamNetworkingSockets.swigGetCPtr(self), nMessages, SWIGTYPE_p_p_SteamNetworkingMessage_t.swigGetCPtr(pMessages), cast(void*)pOutMessageNumberOrResult);
+void SteamAPI_ISteamNetworkingSockets_SendMessages(SWIGTYPE_p_ISteamNetworkingSockets self, int nMessages, SWIGTYPE_p_p_SteamNetworkingMessage_t pMessages, long* pOutMessageNumberOrResult, bool bDeleteFailedMessages) {
+  steamworks.steamworks_im.SteamAPI_ISteamNetworkingSockets_SendMessages(SWIGTYPE_p_ISteamNetworkingSockets.swigGetCPtr(self), nMessages, SWIGTYPE_p_p_SteamNetworkingMessage_t.swigGetCPtr(pMessages), cast(void*)pOutMessageNumberOrResult, bDeleteFailedMessages);
 }
 
 SWIGTYPE_p_EResult SteamAPI_ISteamNetworkingSockets_FlushMessagesOnConnection(SWIGTYPE_p_ISteamNetworkingSockets self, SWIGTYPE_p_HSteamNetConnection hConn) {
@@ -4643,8 +4679,8 @@ bool SteamAPI_ISteamNetworkingSockets_GetListenSocketAddress(SWIGTYPE_p_ISteamNe
   return ret;
 }
 
-bool SteamAPI_ISteamNetworkingSockets_CreateSocketPair(SWIGTYPE_p_ISteamNetworkingSockets self, SWIGTYPE_p_HSteamNetConnection pOutConnection1, SWIGTYPE_p_HSteamNetConnection pOutConnection2, bool bUseNetworkLoopback, SWIGTYPE_p_SteamNetworkingIdentity pIdentity1, SWIGTYPE_p_SteamNetworkingIdentity pIdentity2) {
-  bool ret = steamworks.steamworks_im.SteamAPI_ISteamNetworkingSockets_CreateSocketPair(SWIGTYPE_p_ISteamNetworkingSockets.swigGetCPtr(self), SWIGTYPE_p_HSteamNetConnection.swigGetCPtr(pOutConnection1), SWIGTYPE_p_HSteamNetConnection.swigGetCPtr(pOutConnection2), bUseNetworkLoopback, SWIGTYPE_p_SteamNetworkingIdentity.swigGetCPtr(pIdentity1), SWIGTYPE_p_SteamNetworkingIdentity.swigGetCPtr(pIdentity2)) ? true : false;
+bool SteamAPI_ISteamNetworkingSockets_CreateSocketPair(SWIGTYPE_p_ISteamNetworkingSockets self, SWIGTYPE_p_HSteamNetConnection pOutConnection1, SWIGTYPE_p_HSteamNetConnection pOutConnection2, bool bUseNetworkLoopback, SWIGTYPE_p_SteamNetworkingIdentity pPeerIdentity1, SWIGTYPE_p_SteamNetworkingIdentity pPeerIdentity2) {
+  bool ret = steamworks.steamworks_im.SteamAPI_ISteamNetworkingSockets_CreateSocketPair(SWIGTYPE_p_ISteamNetworkingSockets.swigGetCPtr(self), SWIGTYPE_p_HSteamNetConnection.swigGetCPtr(pOutConnection1), SWIGTYPE_p_HSteamNetConnection.swigGetCPtr(pOutConnection2), bUseNetworkLoopback, SWIGTYPE_p_SteamNetworkingIdentity.swigGetCPtr(pPeerIdentity1), SWIGTYPE_p_SteamNetworkingIdentity.swigGetCPtr(pPeerIdentity2)) ? true : false;
   return ret;
 }
 
@@ -5375,6 +5411,12 @@ void SteamAPI_servernetadr_t_Assign(SWIGTYPE_p_servernetadr_t self, SWIGTYPE_p_s
   if (steamworks.steamworks_im.SwigPendingException.isPending) throw steamworks.steamworks_im.SwigPendingException.retrieve();
 }
 
+bool SteamAPI_servernetadr_t_IsEqualTo(SWIGTYPE_p_servernetadr_t self, SWIGTYPE_p_servernetadr_t rhs) {
+  bool ret = steamworks.steamworks_im.SteamAPI_servernetadr_t_IsEqualTo(SWIGTYPE_p_servernetadr_t.swigGetCPtr(self), SWIGTYPE_p_servernetadr_t.swigGetCPtr(rhs)) ? true : false;
+  if (steamworks.steamworks_im.SwigPendingException.isPending) throw steamworks.steamworks_im.SwigPendingException.retrieve();
+  return ret;
+}
+
 void SteamAPI_gameserveritem_t_Construct(SWIGTYPE_p_gameserveritem_t self) {
   steamworks.steamworks_im.SteamAPI_gameserveritem_t_Construct(SWIGTYPE_p_gameserveritem_t.swigGetCPtr(self));
 }
@@ -5386,6 +5428,12 @@ string SteamAPI_gameserveritem_t_GetName(SWIGTYPE_p_gameserveritem_t self) {
 
 void SteamAPI_gameserveritem_t_SetName(SWIGTYPE_p_gameserveritem_t self, string pName) {
   steamworks.steamworks_im.SteamAPI_gameserveritem_t_SetName(SWIGTYPE_p_gameserveritem_t.swigGetCPtr(self), (pName ? std.string.toStringz(pName) : null));
+}
+
+bool SteamAPI_gameserveritem_t_IsEqualTo(SWIGTYPE_p_gameserveritem_t self, SWIGTYPE_p_gameserveritem_t rhs) {
+  bool ret = steamworks.steamworks_im.SteamAPI_gameserveritem_t_IsEqualTo(SWIGTYPE_p_gameserveritem_t.swigGetCPtr(self), SWIGTYPE_p_gameserveritem_t.swigGetCPtr(rhs)) ? true : false;
+  if (steamworks.steamworks_im.SwigPendingException.isPending) throw steamworks.steamworks_im.SwigPendingException.retrieve();
+  return ret;
 }
 
 void SteamAPI_SteamNetworkingIPAddr_Clear(SWIGTYPE_p_SteamNetworkingIPAddr self) {
@@ -5702,6 +5750,28 @@ class SWIGTYPE_p_EHTTPMethod {
 }
 
 class SWIGTYPE_p_ESteamNetworkingGetConfigValueResult {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(typeof(this) obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  public static void* swigRelease(typeof(this) obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin steamworks.steamworks_im.SwigOperatorDefinitions;
+}
+
+class SWIGTYPE_p_ESteamHardwareDefaultConfig {
   private void* swigCPtr;
 
   public this(void* cObject, bool futureUse) {
@@ -6427,6 +6497,28 @@ class SWIGTYPE_p_HServerListRequest {
   mixin steamworks.steamworks_im.SwigOperatorDefinitions;
 }
 
+class SWIGTYPE_p_ESteamHardwareType {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(typeof(this) obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  public static void* swigRelease(typeof(this) obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin steamworks.steamworks_im.SwigOperatorDefinitions;
+}
+
 class SWIGTYPE_p_EWorkshopVideoProvider {
   private void* swigCPtr;
 
@@ -6647,28 +6739,6 @@ class SWIGTYPE_p_ControllerAnalogActionHandle_t {
   mixin steamworks.steamworks_im.SwigOperatorDefinitions;
 }
 
-class SWIGTYPE_p_ESteamNetworkingConnectionState {
-  private void* swigCPtr;
-
-  public this(void* cObject, bool futureUse) {
-    swigCPtr = cObject;
-  }
-
-  protected this() {
-    swigCPtr = null;
-  }
-
-  public static void* swigGetCPtr(typeof(this) obj) {
-    return (obj is null) ? null : obj.swigCPtr;
-  }
-
-  public static void* swigRelease(typeof(this) obj) {
-    return (obj is null) ? null : obj.swigCPtr;
-  }
-
-  mixin steamworks.steamworks_im.SwigOperatorDefinitions;
-}
-
 class SWIGTYPE_p_AccountID_t {
   private void* swigCPtr;
 
@@ -6692,6 +6762,28 @@ class SWIGTYPE_p_AccountID_t {
 }
 
 class SWIGTYPE_p_ISteamMatchmaking {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(typeof(this) obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  public static void* swigRelease(typeof(this) obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin steamworks.steamworks_im.SwigOperatorDefinitions;
+}
+
+class SWIGTYPE_p_ESteamNetworkingConnectionState {
   private void* swigCPtr;
 
   public this(void* cObject, bool futureUse) {
@@ -7484,6 +7576,28 @@ class SWIGTYPE_p_SteamNetworkPingLocation_t {
 }
 
 class SWIGTYPE_p_ELeaderboardDisplayType {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(typeof(this) obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  public static void* swigRelease(typeof(this) obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin steamworks.steamworks_im.SwigOperatorDefinitions;
+}
+
+class SWIGTYPE_p_ISteamMatchmakingServerFriendsResponse {
   private void* swigCPtr;
 
   public this(void* cObject, bool futureUse) {
@@ -9772,6 +9886,28 @@ class SWIGTYPE_p_ETextFilteringContext {
 }
 
 class SWIGTYPE_p_ISteamMatchmakingPingResponse {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(typeof(this) obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  public static void* swigRelease(typeof(this) obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin steamworks.steamworks_im.SwigOperatorDefinitions;
+}
+
+class SWIGTYPE_p_EGamePerformanceSetting {
   private void* swigCPtr;
 
   public this(void* cObject, bool futureUse) {

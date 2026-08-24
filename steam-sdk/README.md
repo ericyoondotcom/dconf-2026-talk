@@ -104,7 +104,7 @@ cp $STEAMWORKS_SDK/redistributable_bin/osx/libsteam_api.dylib ./steam-sdk-exampl
 In Windows, the DLLs need to be siblings of the executable, since that's where the dynamic loader looks by default.
 
 ```bat
-copy %STEAMWORKS_SDK%\steamworks_wrap.dll .\steam-sdk-example
+copy %STEAMWORKS_SDK%\public\steam\dlang_out\steamworks_wrap.dll .\steam-sdk-example
 copy %STEAMWORKS_SDK%\redistributable_bin\win64\steam_api64.dll .\steam-sdk-example
 ```
 
