@@ -97,13 +97,14 @@ cp $DISCORD_SDK/libdiscord_wrap.dylib ./discord-sdk-example/lib
 cp $DISCORD_SDK/lib/release/libdiscord_partner_sdk.dylib ./discord-sdk-example/lib
 ```
 
-In Windows, the DLLs need to be siblings of the executable:
+> Note that I've added an `lflags` entry in `dub.json` for Mac builds to modify the rpath so `lib/` gets searched when loading dylibs.
+
+In Windows, the DLLs need to be siblings of the executable, since that's where the dynamic loader looks by default.
+
 ```bat
 copy %DISCORD_SDK%\discord_wrap.dll .\discord-sdk-example
 copy %DISCORD_SDK%\lib\release\discord_partner_sdk.dll .\discord-sdk-example
 ```
-
-Note that I've added an `lflags` entry in `dub.json` to modify the rpath so `lib/` gets searched when loading dylibs.
 
 ## Run The Example
 

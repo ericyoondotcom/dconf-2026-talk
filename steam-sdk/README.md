@@ -68,16 +68,46 @@ lipo -create \
 ## Building dlls (Windows)
 
 
+First, install [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2026) with "Desktop Development with C++" workload.
+
+You need to work in **x64 Native Tools Command Prompt** which comes bundled with C++ Build Tools. You cannot use regular Command Prompt because `cl` needs to be defined.
+
+With the Steamworks SDK folder as your cwd, run:
+```bat
+mkdir obj
+
+cl /nologo /LD /O2 /MT /TP /EHsc ^
+   /I public ^
+   /I public\steam ^
+   /I public\steam\dlang_out ^
+   /Foobj\ ^
+   /Fepublic\steam\dlang_out\steamworks_wrap.dll ^
+   public\steam\dlang_out\steamworks_wrap.c ^
+   /link redistributable_bin\win64\steam_api64.lib
+```
+
+This will generate the `steamworks_wrap.dll` dynamic library, which you should include in your project, alongside the original `steam_api64.dll`.
+
 ## Move Libraries Into Project
 
-After you're done building the dylib, copy them into `steam-sdk-example/lib`:
+After you're done building the dylib, copy them into the example project.
+
+In macOS, the libraries can live in the `lib` folder that's been added to the rpath:
 
 ```bash
 cp $STEAMWORKS_SDK/libsteamworks_wrap.dylib ./steam-sdk-example/lib
 cp $STEAMWORKS_SDK/redistributable_bin/osx/libsteam_api.dylib ./steam-sdk-example/lib
 ```
 
-Note that I've added an `lflags` entry in `dub.json` to modify the rpath so `lib/` gets searched when loading dylibs.
+> Note that I've added an `lflags` entry in `dub.json` for Mac builds to modify the rpath so `lib/` gets searched when loading dylibs.
+
+In Windows, the DLLs need to be siblings of the executable, since that's where the dynamic loader looks by default.
+
+```bat
+copy %STEAMWORKS_SDK%\steamworks_wrap.dll .\steam-sdk-example
+copy %STEAMWORKS_SDK%\redistributable_bin\win64\steam_api64.dll .\steam-sdk-example
+```
+
 
 ## Run The Example
 
@@ -85,5 +115,6 @@ Put your Steam App ID into `steam_appid.txt`. Note that you only need to do this
 
 ```bash
 cd steam-sdk-example
-dub run
+dub run --build=windows # for windows
+dub run --build=mac # for mac
 ```
