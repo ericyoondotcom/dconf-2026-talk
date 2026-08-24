@@ -1,5 +1,5 @@
 MAC_SDL3_FRAMEWORK_PATH = ./lib/SDL3.framework
-WIN_SDL3_DLL_PATH = ./lib/SDL3.dll
+WIN_SDL3_DLL_PATH = .\lib\SDL3.dll
 
 SOURCES = $(wildcard source/**/*.d)
 
