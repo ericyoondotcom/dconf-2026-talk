@@ -6,7 +6,12 @@
 	"description": "A minimal example of using the Discord SDK in DLang",
 	"license": "Unlicense",
 	"name": "discord-sdk-example",
-	"lflags": [
-		"-rpath", "@executable_path/lib"
-	]
+	"buildTypes": {
+		"mac": {
+			"lflags": [
+				"-rpath", "@executable_path/lib"
+			]
+		},
+		"windows": {}
+	},
 }

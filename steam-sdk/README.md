@@ -67,7 +67,6 @@ lipo -create \
 
 ## Building dlls (Windows)
 
-// WIP
 
 ## Move Libraries Into Project
 

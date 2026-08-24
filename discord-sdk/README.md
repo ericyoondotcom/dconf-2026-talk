@@ -67,15 +67,40 @@ lipo -create \
 
 ## Building dlls (Windows)
 
-// WIP
+First, install [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2026) with "Desktop Development with C++" workload.
+
+You need to work in **x64 Native Tools Command Prompt** which comes bundled with C++ Build Tools. You cannot use regular Command Prompt because `cl` needs to be defined.
+
+With the Discord SDK folder as your cwd, run:
+```bat
+mkdir obj
+
+cl /nologo /LD /O2 /MT ^
+   /I include ^
+   /I include\dlang_out ^
+   /Foobj\ ^
+   /Feinclude\dlang_out\discord_wrap.dll ^
+   include\dlang_out\discord_wrap.c ^
+   /link lib\release\discord_partner_sdk.lib
+```
+
+This will generate the `discord_wrap.dll` dynamic library, which you should include in your project, alongside the original `discord_partner_sdk.dll`.
 
 ## Move Libraries Into Project
 
-Again, due to licensing concerns, I can't include the Discord SDK binary in the code example. So after you're done building the dylib, copy them into `discord-sdk-example/lib`:
+Again, due to licensing concerns, I can't include the Discord SDK binary in the code example. So after you're done building the dylib, copy them into the example project.
+
+In macOS, the libraries can live in the `lib` folder that's been added to the rpath:
 
 ```bash
 cp $DISCORD_SDK/libdiscord_wrap.dylib ./discord-sdk-example/lib
 cp $DISCORD_SDK/lib/release/libdiscord_partner_sdk.dylib ./discord-sdk-example/lib
+```
+
+In Windows, the DLLs need to be siblings of the executable:
+```bat
+copy %DISCORD_SDK%\discord_wrap.dll .\discord-sdk-example
+copy %DISCORD_SDK%\lib\release\discord_partner_sdk.dll .\discord-sdk-example
 ```
 
 Note that I've added an `lflags` entry in `dub.json` to modify the rpath so `lib/` gets searched when loading dylibs.
