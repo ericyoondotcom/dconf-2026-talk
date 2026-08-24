@@ -111,5 +111,6 @@ Make an app in the Discord Developer Portal, and paste your app ID into `DISCORD
 
 ```bash
 cd discord-sdk-example
-dub run
+dub run --build=windows # for windows
+dub run --build=mac # for mac
 ```

@@ -66,11 +66,11 @@ mac-codesign: build/SDL\ GUI\ App.app sdl-gui-app.entitlements
 
 win-exe: dlang-release-win
 	if exist build rmdir /s /q build
-	mkdir build\SDL GUI App-win64
-	mkdir build\SDL GUI App-win64\lib
-	copy sdl-gui-app.exe build\SDL GUI App-win64\SDL GUI App.exe
-	copy "$(WIN_SDL3_DLL_PATH)" build\SDL GUI App-win64\lib\SDL3.dll
-	cmd /c start "" build\SDL GUI App-win64
+	mkdir build\sdl-gui-example-win64
+	mkdir build\sdl-gui-example-win64\lib
+	copy sdl-gui-app.exe build\sdl-gui-example-win64\sdl-gui-example.exe
+	copy "$(WIN_SDL3_DLL_PATH)" build\sdl-gui-example-win64\lib\SDL3.dll
+	cmd /c start "" build\sdl-gui-example-win64
 
 clean:
 	rm -rf build
